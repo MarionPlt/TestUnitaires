@@ -21,16 +21,17 @@ public class Donnees {
         } catch (Exception e) {
             System.out.println(" Erreur détectée : veuillez vérifier le format de votre fichier. ");
             System.exit(1);
+
         }
         return listeLecture;
     }
 
     public static void main(String[] args) {
-        System.out.println("Veuillez indiquer le chemin du fichier sudoku à importer : ");
+        System.out.println("Veuillez indiquer le chemin du fichier à importer : ");
         Scanner sc = new Scanner(System.in);
         String path = sc.nextLine();
         String[] tab;
-        List<String[]> listeLecture = new ArrayList<String[]>(importFichier(path));
+        List<String[]> listeLecture = new ArrayList(importFichier(path));
 
         for (int i = 0; i < listeLecture.size(); i++) {
             tab = listeLecture.get(i);
