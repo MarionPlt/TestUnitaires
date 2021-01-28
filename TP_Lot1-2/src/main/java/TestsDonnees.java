@@ -1,9 +1,17 @@
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import javax.management.Query;
+import javax.sql.DataSource;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.Executor;
+import java.util.logging.Logger;
 
 public class TestsDonnees extends TestCase {
 
@@ -24,6 +32,7 @@ public class TestsDonnees extends TestCase {
         Donnees.importFichier(errorpass);
     }
 
-
-
+    @Test
+    public void testIdUnique(){
+    }
 }
