@@ -1,0 +1,3 @@
+01A;Arthurur;DESMON;arthur@desmon@epsi.fr
+02E;Eve;WALTER;eve.walter@epsi.fr
+03F;Frederic;ROBERT;frederic.robert@epsi.fr
