@@ -49,7 +49,36 @@ public class TestsDonnees extends TestCase {
         ResultSet resultat=database.talkToDataBase(queryTest);
         resultat.next();
         assertTrue(resultat.getInt(1)==0);
-
-
     }
+
+    @Test
+	public void isNotEmpty() {
+		File file = new File("nodata.txt");
+	  	//assertTrue(file.length() == 0);
+	  	
+	  	assertEquals(file.length() == 0, file.length() == file.length());
+	  	System.out.println("Erreur fichier vide");
+	  	}
+    
+    @Test
+	public void badFormat() {
+		
+		File file = new File("client.");
+		Optional<String> value1 = Optional.of(""); 
+	getExtensionByStringHandling(file.toString());
+	Optional<String> value = getExtensionByStringHandling(file.toString());
+	assertEquals(value, value1);
+	System.out.println("ERREUR MAUVAIS FORMAT : ATTENDU - .txt");
+	}
+	
+	@Test
+	public void goodFormat() {
+		
+		File file = new File("client.txt");
+		Optional<String> value1 = Optional.of("txt"); 
+	getExtensionByStringHandling(file.toString());
+	Optional<String> value = getExtensionByStringHandling(file.toString());
+	assertEquals(value , value1);
+	//System.out.println("ERREUR MAUVAIS FORMAT : ATTENDU - .txt");
+	}
 }
