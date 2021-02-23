@@ -30,6 +30,11 @@ public class Donnees extends JFrame implements ActionListener {
                 //Split des chiffres par ";"
                 String[] tab = s.split(";", 4);
                 listeLecture.add(tab);
+                reparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO noms(ID, first, last, mail) VALUES(?, ?, ?, ?);");
+                        preparedStatement.setString(1, )
+                        preparedStatement.setString(2, )
+                        preparedStatement.setString(3, )
+                        preparedStatement.setString(4, )
             }
 
         } catch (Exception e) {
@@ -56,7 +61,8 @@ public class Donnees extends JFrame implements ActionListener {
 
         // addActionListener to button
         b.addActionListener(te);
-
+//Graphique
+        //Create panel
         JFrame text = new JFrame("Nouveau Client");
         JLabel text1 = new JLabel("ID");
         JTextField champID = new JTextField(15);
@@ -65,7 +71,7 @@ public class Donnees extends JFrame implements ActionListener {
         JLabel text3 = new JLabel("Nom");
         JTextField champNom = new JTextField(15);
         JLabel text4 = new JLabel("Adresse");
-        JTextField champAdresse = new JTextField(15);
+        JTextField champMail = new JTextField(15);
 
         // create a panel to add buttons and textfield
         JPanel p = new JPanel();
@@ -79,7 +85,7 @@ public class Donnees extends JFrame implements ActionListener {
         p.add(text3);
         p.add(champNom);
         p.add(text4);
-        p.add(champAdresse);
+        p.add(champMail);
         p.add(b);
 
 
@@ -93,7 +99,18 @@ public class Donnees extends JFrame implements ActionListener {
 
         text.show();
 
-        Client client = new Client (champID.getText(), champPrenom.getText(), champNom.getText(), champAdresse.getText());
+        Client client = new Client (champID.getText(), champPrenom.getText(), champNom.getText(), champMail.getText());
+        try {
+            connexion = DriverManager.getConnection("jdbc:mariadb://localhost:3307/testunit", "root", "");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        reparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO noms(ID, first, Last, Mail) VALUES(?, ?, ?, ?);");
+                preparedStatement.setString(1, champID.getText())
+                preparedStatement.setString(2, champPrenom.getText())
+                preparedStatement.setString(3, champNom.getText())
+                preparedStatement.setString(4, champMail.getText())
+    }
 
 //todo ranger le bazar, ajouter l'option import d'un fichier à une bdd, ajouter tests unitaires manquants de male, créer le job pour tests indus
 
