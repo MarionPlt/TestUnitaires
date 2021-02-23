@@ -1,15 +1,24 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
-public class Donnees {
+public class Donnees extends JFrame implements ActionListener {
+
+
+    // JButton
+    static JButton b;
+
+    // default constructor
+    Donnees(){}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 
     public static List<String[]> importFichier(String path) {
         List<String[]> listeLecture = new ArrayList<String[]>();
@@ -32,30 +41,64 @@ public class Donnees {
     }
 
     public static void main(String[] args) {
-        System.out.println("Veuillez indiquer le chemin du fichier à importer : ");
-        Scanner sc = new Scanner(System.in);
-        String path = sc.nextLine();
-        String[] tab;
-        List<String[]> listeLecture = new ArrayList(importFichier(path));
+//        System.out.println("Veuillez indiquer le chemin du fichier à importer : ");
+//        Scanner sc = new Scanner(System.in);
+//        String path = sc.nextLine();
+//        String[] tab;
+//        List<String[]> listeLecture = new ArrayList(importFichier(path));
 
-        for (int i = 0; i < listeLecture.size(); i++) {
-            tab = listeLecture.get(i);
-            for (int j = 0; j < 4; j++) {
-                System.out.print(tab[j] + "\t");
-            }
-            System.out.println();
-        }
+
+
+        // create a object of the donnees class
+        Donnees te = new Donnees();
+        // create a new button
+        b = new JButton("submit");
+
+        // addActionListener to button
+        b.addActionListener(te);
+
+        JFrame text = new JFrame("Nouveau Client");
+        JLabel text1 = new JLabel("ID");
+        JTextField champID = new JTextField(15);
+        JLabel text2 = new JLabel("Prenom");
+        JTextField champPrenom = new JTextField(15);
+        JLabel text3 = new JLabel("Nom");
+        JTextField champNom = new JTextField(15);
+        JLabel text4 = new JLabel("Adresse");
+        JTextField champAdresse = new JTextField(15);
+
+        // create a panel to add buttons and textfield
+        JPanel p = new JPanel();
+
+        // add buttons and textfield to panel
+//        p.add(text);
+        p.add(text1);
+        p.add(champID);
+        p.add(text2);
+        p.add(champPrenom);
+        p.add(text3);
+        p.add(champNom);
+        p.add(text4);
+        p.add(champAdresse);
+        p.add(b);
+
+
+        // add panel to frame
+        text.add(p);
+
+        // set the size of frame
+        text.setSize(300, 300);
+        text.setLocationRelativeTo(null);
+
+
+        text.show();
+
+        Client client = new Client (champID.getText(), champPrenom.getText(), champNom.getText(), champAdresse.getText());
+
+//todo ranger le bazar, ajouter l'option import d'un fichier à une bdd, ajouter tests unitaires manquants de male, créer le job pour tests indus
+
     }
-}
-//Saisie information nouveau client
-public class ChampText extends JTextField{
-    public static void main(String[] args){
-        JFrame text1 = new JFrame("Nom");
-        champNom = new JTextField();
-        JFrame text2 = new JFrame("Prenom");
-        champPrenom = new JTextField();
-        JFrame text3 = new JFrame("ID");
-        champID = new JTextField();
-    }
+
+
 }
 
