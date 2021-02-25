@@ -1,35 +1,12 @@
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Donnees extends JFrame implements ActionListener {
+public class Donnees  {
 
 
-    // JButton
-    static JButton b;
-
-    // default constructor
-    Donnees() {
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-    public void actionPerformed(ActionEvent e, List<JTextField> textes) {
-
-        for (JTextField texte : textes) {
-            texte.getText();
-        }
-
-        System.out.println("OK");
-    }
 
     public static List<String[]> importFichier(String path) {
         List<String[]> listeLecture = new ArrayList<String[]>();
