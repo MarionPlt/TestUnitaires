@@ -99,12 +99,11 @@ public class Donnees extends JFrame implements ActionListener {
             }
             System.out.println("Souhaitez vous ajouter un autre client? (O/N)");
             String souhait = sc.nextLine();
-            if (souhait.toUpperCase().equals("N")){
+            if (souhait.equalsIgnoreCase("N")){
                 retry = false;
             }
         }
 
-//todo ranger le bazar, ajouter l'option import d'un fichier à une bdd, ajouter tests unitaires manquants de male, créer le job pour tests indus
 
     }
 
