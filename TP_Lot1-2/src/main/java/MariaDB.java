@@ -13,11 +13,11 @@ public class MariaDB {
     public String defineQuery(Client client) {
         //STEP 4: Write a query to execute
         System.out.println("Creating NEW CLIENT" + client.getNom() + " " + client.getPrenom() + " in given database...");
-        String sql = "INSERT INTO clientsunit "
-                + "(client.getId(), "
-                + " client.getPrenom(), "
-                + " client.getNom(), "
-                + " client.getAdresse())";
+        String sql = "INSERT INTO clientsunit values"
+                + "('"+client.getId()+"',"
+                +  "'"+client.getPrenom()+"', "
+                +  "'"+client.getNom()+"', "
+                +  "'"+client.getAdresse()+"');";
         return sql;
     }
 
